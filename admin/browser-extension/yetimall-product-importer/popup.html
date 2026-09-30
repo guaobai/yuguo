@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YETIMALL 商品搬运助手</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body class="popup-body">
+    <main class="popup-shell">
+      <header class="app-header">
+        <img src="icons/icon.png" alt="" class="app-logo" />
+        <div>
+          <h1>商品搬运助手</h1>
+          <p>YETIMALL → 娱果商城</p>
+        </div>
+        <button id="openOptionsButton" class="icon-button" type="button" title="插件设置">
+          <span aria-hidden="true">⚙</span>
+        </button>
+      </header>
+
+      <section class="form-section">
+        <label for="sourceUrl">商品详情链接</label>
+        <textarea
+          id="sourceUrl"
+          rows="3"
+          spellcheck="false"
+          placeholder="https://m.yetimall.store/h5/#/goods?gid=..."
+        ></textarea>
+        <div class="button-row">
+          <button id="extractButton" class="button secondary" type="button">提取商品</button>
+          <button id="fillButton" class="button primary" type="button">自动填入</button>
+        </div>
+      </section>
+
+      <div id="status" class="status" data-state="idle">等待输入商品链接</div>
+
+      <section id="productPreview" class="product-preview" hidden>
+        <img id="productImage" alt="商品主图" />
+        <div class="product-copy">
+          <h2 id="productName"></h2>
+          <p id="productMeta"></p>
+          <p id="productSchedule"></p>
+        </div>
+      </section>
+
+      <section class="admin-target">
+        <span>填入地址</span>
+        <strong id="adminUrlText"></strong>
+      </section>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

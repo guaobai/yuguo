@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YETIMALL 商品搬运助手设置</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body class="options-body">
+    <main class="options-shell">
+      <header class="options-header">
+        <h1>商品搬运助手设置</h1>
+      </header>
+
+      <form id="settingsForm">
+        <section class="settings-section">
+          <h2>管理后台</h2>
+          <div class="settings-grid">
+            <div class="wide">
+              <label for="adminUrl">新增商品页面地址</label>
+              <input id="adminUrl" type="url" required />
+              <p class="field-help">支持线上域名、localhost 和局域网地址。</p>
+            </div>
+            <div>
+              <label for="categoryId">默认商品分类 ID</label>
+              <input id="categoryId" type="number" min="1" placeholder="留空则不修改" />
+            </div>
+            <div>
+              <label for="brandId">默认商品品牌 ID</label>
+              <input id="brandId" type="number" min="1" placeholder="留空则不修改" />
+            </div>
+            <div class="wide">
+              <span class="field-label">配送方式</span>
+              <div class="checkbox-line">
+                <label><input id="deliveryExpress" type="checkbox" /> 快递发货</label>
+                <label><input id="deliveryPickup" type="checkbox" /> 用户自提</label>
+              </div>
+            </div>
+            <div>
+              <label for="deliveryTemplateId">运费模板 ID</label>
+              <input id="deliveryTemplateId" type="number" min="1" placeholder="使用快递时填写" />
+            </div>
+            <div>
+              <label for="maxSliderImages">轮播图数量</label>
+              <input id="maxSliderImages" type="number" min="1" max="10" />
+            </div>
+          </div>
+        </section>
+
+        <section class="settings-section">
+          <h2>规格映射</h2>
+          <div class="settings-grid">
+            <div>
+              <label for="memberPropertyName">第 1 个规格属性名称</label>
+              <input id="memberPropertyName" type="text" required />
+            </div>
+            <div>
+              <label for="productTypePropertyName">第 2 个规格属性名称</label>
+              <input id="productTypePropertyName" type="text" required />
+            </div>
+            <div class="wide checkbox-line">
+              <label>
+                <input id="createMissingProperties" type="checkbox" />
+                自动创建缺失的属性和属性值
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings-section">
+          <h2>价格库存</h2>
+          <div class="settings-grid">
+            <div>
+              <label for="marketPriceMultiplier">市场价倍率</label>
+              <input id="marketPriceMultiplier" type="number" min="0.01" step="0.01" />
+            </div>
+            <div>
+              <label for="costPriceMultiplier">成本价倍率</label>
+              <input id="costPriceMultiplier" type="number" min="0.01" step="0.01" />
+            </div>
+            <div>
+              <label for="stockMode">库存策略</label>
+              <select id="stockMode">
+                <option value="source">使用来源库存</option>
+                <option value="fixed">使用固定库存</option>
+              </select>
+            </div>
+            <div>
+              <label for="fixedStock">固定库存</label>
+              <input id="fixedStock" type="number" min="0" />
+            </div>
+            <div>
+              <label for="defaultWeight">默认重量（kg）</label>
+              <input id="defaultWeight" type="number" min="0" step="0.01" />
+            </div>
+            <div>
+              <label for="defaultVolume">默认体积（m³）</label>
+              <input id="defaultVolume" type="number" min="0" step="0.001" />
+            </div>
+            <div>
+              <label for="barcodePrefix">商品条码前缀</label>
+              <input id="barcodePrefix" type="text" />
+            </div>
+            <div class="checkbox-line">
+              <label>
+                <input id="importVirtualSales" type="checkbox" />
+                使用来源销量作为虚拟销量
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings-section">
+          <h2>其它默认值</h2>
+          <div class="settings-grid">
+            <div>
+              <label for="sort">商品排序</label>
+              <input id="sort" type="number" min="0" />
+            </div>
+            <div>
+              <label for="giveIntegral">赠送积分</label>
+              <input id="giveIntegral" type="number" min="0" />
+            </div>
+          </div>
+        </section>
+
+        <div class="options-actions">
+          <button class="button primary" type="submit">保存设置</button>
+          <span id="optionsStatus" class="options-status"></span>
+        </div>
+      </form>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

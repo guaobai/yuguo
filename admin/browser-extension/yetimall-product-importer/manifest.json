@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "YETIMALL 商品搬运助手",
+  "description": "提取 YETIMALL 商品信息并自动填入娱果商城商品新增页面。",
+  "version": "1.1.2",
+  "permissions": ["storage", "tabs", "scripting", "sidePanel"],
+  "host_permissions": ["https://m.yetimall.store/*"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "popup.html"
+  },
+  "action": {
+    "default_title": "YETIMALL 商品搬运助手",
+    "default_icon": {
+      "16": "icons/icon.png",
+      "32": "icons/icon.png",
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon.png",
+    "32": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  }
+}
